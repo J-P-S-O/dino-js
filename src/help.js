@@ -6,6 +6,8 @@ let help = `
 
 	To get help for a command, run Dino <command> --help
 `
-
-
+if (args._.length <= 2) {
+console.log(help);
+return 0
+}
 }
