@@ -8,6 +8,7 @@ console.log(chalk.yellow("Requires Node.js 12+ and Git"))
 if (!fs.existsSync(ddir)){
     fs.mkdirSync(ddir);
     process.chdir(ddir);
+    
     let git = spawn("git","clone", "https://github.com/j-p-s-o/dino-js/tree/latest", ".")
     
    git.stdout.on('data', (data) => {
