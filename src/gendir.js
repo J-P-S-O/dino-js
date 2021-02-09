@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 import fs from 'fs'
-
+import { spawnSync } from "child_process"
 import touch from './touch.js'
 export default function(args){
 
@@ -22,13 +22,15 @@ export default function(args){
 	} 
 		
 	})
-	
-
+	console.log("Fetching deps")
+	let o = spawnSync("npm" , "i")
+	process.stdout.write(o.stdout + o.stderr)
+	console.log("Npm exited with" + status)
 }catch(e){
 	if (e.code == "EEXIST"){
 		console.log("Path already exists");
 		process.exit(1)
-	}
+	} 
 }
 	
 
