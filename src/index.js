@@ -6,9 +6,11 @@ import minimist from "minimist"
 import genDir from "./gendir.js"
 import showHelp from "./help.js"
 let args = minimist(process.argv)
-if (args._.length <= 2 || args.help == true) showHelp(args);
+if (args._.length <= 2 || args.help == true) {
+	showHelp(args);
+}else{
 
-
-if ( args._[3] == "new"){
+if (process.argv[2] == "new"){
 	genDir(args)
+}
 }
