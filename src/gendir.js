@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 import fs from 'fs'
-import { spawnSync } from "child_process"
+import { spawnSync, spawn  } from "child_process"
 import touch from './touch.js'
 export default function(args){
 
@@ -10,7 +10,7 @@ export default function(args){
 	fs.mkdirSync(dir)
 	process.chdir(dir)
 	touch.json("package.json", {
-	title: "dino-app",
+	title: dir.toLowerCase(),
 	version: "0.0.0",
 	description:" A tiny Dino app",
 	main: "index.js",
@@ -23,9 +23,25 @@ export default function(args){
 		
 	})
 	console.log("Fetching deps")
-	let o = spawnSync("npm" , "i")
-	process.stdout.write(o.stdout + o.stderr)
-	console.log("Npm exited with" + status)
+	let npm = spawn("npm", "i")
+	
+npm.stdout.on('data', (data) => {
+  console.log(`${data}`);
+});
+
+npm.on('close', (code) => {
+  console.log(`Npm exited with ${code}`);
+  process.exit(code)
+});
+
+npm.on('exit', (code) => {
+  console.log(`child process exited with code ${code}`);
+  process.exit(code)
+});
+npm.stderr.on('data', (data) => {
+	console.error(data)
+})
+while (true){}
 }catch(e){
 	if (e.code == "EEXIST"){
 		console.log("Path already exists");

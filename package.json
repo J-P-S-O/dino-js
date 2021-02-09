@@ -7,7 +7,16 @@
   "bin": {
     "dino": "./src/index.js"
   },
-  "scripts": {},
+"husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+    
+      "...": "..."
+    }
+  },
+  "scripts": {
+"test":"node test.js"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/J-P-S-O/dino-js.git"
