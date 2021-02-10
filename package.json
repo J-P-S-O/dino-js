@@ -14,7 +14,7 @@
     }
   },
   "scripts": {
-    "test": "eslint --fix & node test.js",
+    "test": "eslint & node test.js",
     "dev": "tsc --watch",
     "lint": "eslint"
   },
