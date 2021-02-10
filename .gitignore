@@ -3,3 +3,4 @@ thrown.js
 node_modules/
 *.js.map
 src/*.js
+test.js
