@@ -2,9 +2,10 @@ import chalk from 'chalk'
 import fs from 'fs'
 import { spawnSync, spawn  } from "child_process"
 import touch from './touch.js'
+import thrown from "./thrown.js"
 export default function(args){
 
-	let dir = args._[3]
+	let dir = args._[3] || thrown("No directory.")
 	console.log(`Generating Dino app to ${chalk.bold(dir)}` )
 	try{
 	fs.mkdirSync(dir)
