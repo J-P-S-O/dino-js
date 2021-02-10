@@ -15,4 +15,4 @@ import start from "./src/start"
 import thrown from "./src/thrown"
 import touch from "./src/touch"
 
-console.log("Process exited with code"+ chalk.green(0))
+console.log("Process exited with code "+ chalk.green("0"))
