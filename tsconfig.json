@@ -9,8 +9,5 @@
   "allowSyntheticDefaultImports":true
 },
 "exclude":["node_modules/**.*.ts"],
-"files": [
-  "src/thrown.ts",
-  "test.ts"
-]
+"include":["src/*ts", "*.ts"]
 }
