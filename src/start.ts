@@ -1,3 +1,1 @@
-export default function start(args){
-
-}
+export default function start(args) {}
